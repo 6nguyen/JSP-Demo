@@ -23,22 +23,25 @@
 <!-- Step 2: Add new items to a List<String> -->
 <%
 	// store items from the session into List, import java.util.*
-	// 
+	// session.getAttribute("") can be named w/e you want
 	List<String> items = (List<String>) session.getAttribute("toDoList");
 	
-	// if the item doesn't exist, create a new one
+	// if items List doesn't exist, create a new one and store items inside
+	// setAttribute(name, value)
 	if (items == null){
 		items = new ArrayList<String>();
 		session.setAttribute("toDoList", items);
 	}
 	
-	// see if there is form data to add
+	// see if there is form data from the above form to add
+	// "item" refers to <input type="text" name="item" />
 	String item = request.getParameter("item");
-	if (item != null) {
+	if (item != null && !item.trim().equals("")) {
 		items.add(item);
+	} else {
+		out.println("<p><font color = \"red\">There's no task to add!</font></p>");
 	}
 %>
-
 
 
 
