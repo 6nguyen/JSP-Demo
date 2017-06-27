@@ -11,7 +11,10 @@
 	Name: &emsp;${param.firstName} ${param.lastName}
 	<br/>
 	Country:&ensp;${param.country}
-
+	<br/>	
+	Gender: &ensp;${param.gender}
+	
+	
 </body>
 
 </html>
