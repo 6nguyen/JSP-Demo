@@ -6,26 +6,30 @@
 
 <body>
 
-<!-- Step 1: Create HTML form -->
+
+
+<!-- Step 1: Create HTML form and submit button -->
 
 <form action="toDoList.jsp">
 	Add new item: <input type="text" name="item" />
 	
-	<input type="submit" value="Add" />
+	<input type="submit" value="Add Task" />
 </form>
 <br>
-Task: <%= request.getParameter("item") %>
 
 
-<!-- Step 2: Add new items to To Do list -->
+
+
+<!-- Step 2: Add new items to a List<String> -->
 <%
-	// get items from the session, import java.util.*
-	List<String> items = (List<String>) session.getAttribute("TaskTracker");
+	// store items from the session into List, import java.util.*
+	// 
+	List<String> items = (List<String>) session.getAttribute("toDoList");
 	
 	// if the item doesn't exist, create a new one
 	if (items == null){
 		items = new ArrayList<String>();
-		session.setAttribute("TaskTracker", items);
+		session.setAttribute("toDoList", items);
 	}
 	
 	// see if there is form data to add
@@ -34,6 +38,10 @@ Task: <%= request.getParameter("item") %>
 		items.add(item);
 	}
 %>
+
+
+
+
 <!-- Step 3: Display all items from session -->
 <!-- 
 HTML CHEAT SHEET ***************************
@@ -44,7 +52,7 @@ HTML CHEAT SHEET ***************************
 ********************************************
 -->
 <hr>
-<b>Tasks:</b><br/>
+<b>My Tasks:</b><br/>
 
 <ol>
 <%
