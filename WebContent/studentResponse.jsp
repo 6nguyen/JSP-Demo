@@ -4,7 +4,13 @@
 
 <body>
 
-	The student is registered: ${param.firstName} ${param.lastName}
+	The student has been registered.
+	
+	<br/><br/>
+	
+	Name: &emsp;${param.firstName} ${param.lastName}
+	<br/>
+	Country:&ensp;${param.country}
 
 </body>
 
