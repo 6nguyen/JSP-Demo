@@ -17,13 +17,15 @@
 	
 	<br/><br/>
 	
-	Eulogy: 
 	<ul>
 		<% 
 			String[] descriptors = request.getParameterValues("description"); 
-		
-			for (String x: descriptors){
-				out.println("<li>" + x + "</li>");
+			
+			if (descriptors != null){
+				Eulogy: 
+				for (String x: descriptors){
+					out.println("<li>" + x + "</li>");
+				}
 			}
 		%>
 	</ul>
